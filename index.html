@@ -752,6 +752,11 @@
               <div class="result-value" id="br-salt">—</div>
               <div class="result-unit">lbm</div>
             </div>
+            <div class="result-item green">
+              <div class="result-label">Salt required</div>
+              <div class="result-value" id="br-salt-kg">—</div>
+              <div class="result-unit">kg</div>
+            </div>
             <div class="result-item">
               <div class="result-label">Water required</div>
               <div class="result-value" id="br-water">—</div>
@@ -1273,6 +1278,7 @@ function calcBrine() {
     const saltLbm = Math.round(vol * density * 42 * (conc/100) / (1 - conc/100) * 0.1); // approx
     const waterGal = Math.round(vol * 42 * (1 - conc/100));
     document.getElementById('br-salt').textContent = saltLbm;
+    document.getElementById('br-salt-kg').textContent = (saltLbm * 0.453592).toFixed(1);
     document.getElementById('br-water').textContent = waterGal;
     document.getElementById('br-breakdown').innerHTML = `
       <div class="step"><span>Brine density at ${conc}%</span><span>${density.toFixed(2)} ppg</span></div>
